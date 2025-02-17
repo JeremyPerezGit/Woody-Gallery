@@ -8,8 +8,8 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-import { generateToken } from "./authTools/authTools";
-import usersRepository from "./usersRepository";
+import { generateToken } from "../auth/authTools";
+import usersRepository from "../Repository/usersRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {

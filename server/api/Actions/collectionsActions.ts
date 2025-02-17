@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
 
-import collectionsRepository from "./collectionsRepository";
+import collectionsRepository from "../Repository/collectionsRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {

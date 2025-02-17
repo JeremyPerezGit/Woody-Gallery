@@ -7,7 +7,7 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Define orders-related routes
-import ordersAction from "./modules/orders/ordersActions";
+import ordersAction from "../api/Actions/ordersActions";
 
 router.get("/api/orders", ordersAction.browse);
 router.get("/api/orders/:id", ordersAction.readById);
@@ -16,7 +16,7 @@ router.post("/api/orders", ordersAction.add);
 router.delete("/api/orders/:id", ordersAction.destroy);
 
 // Define users-related routes
-import usersActions from "./modules/users/usersActions";
+import usersActions from "../api/Actions/usersActions";
 
 router.get("/api/users", usersActions.browse);
 router.get("/api/users-list", usersActions.browseUsers);
@@ -27,9 +27,9 @@ router.put("/api/users/:id/password", usersActions.editPassword);
 router.put("/api/users/:id", usersActions.edit);
 router.delete("/api/users/:id", usersActions.destroy);
 
-import { adjustFilePath, upload } from "./modules/middlewares/multerUpload";
+import { adjustFilePath, upload } from "./multerUpload";
 // Define photos-related routes
-import photosAction from "./modules/photos/photosActions";
+import photosAction from "../api/Actions/photosActions";
 
 router.get("/api/photos", photosAction.browse);
 router.get("/api/photos/:id", photosAction.read);
@@ -39,7 +39,7 @@ router.post("/api/photos", upload, adjustFilePath, photosAction.add);
 router.delete("/api/photos/:id", photosAction.destroy);
 
 // Define collections-related routes
-import collectionsActions from "./modules/collections/collectionsActions";
+import collectionsActions from "../api/Actions/collectionsActions";
 
 router.get("/api/collections", collectionsActions.browse);
 router.get("/api/collectionsPhotos", collectionsActions.browseCollection);
@@ -55,7 +55,7 @@ router.put("/api/collections/:id", collectionsActions.edit);
 router.delete("/api/collections/:id", collectionsActions.destroy);
 
 // Define ratings-related routes
-import ratingsActions from "./modules/ratings/ratingsActions";
+import ratingsActions from "../api/Actions/ratingsActions";
 
 router.get("/api/ratings", ratingsActions.browse);
 router.get("/api/ratings/:id", ratingsActions.read);
@@ -65,7 +65,7 @@ router.delete("/api/ratings/:id", ratingsActions.destroy);
 /* ************************************************************************* */
 
 // Define address-related routes
-import * as addressActions from "./modules/address/addressActions";
+import * as addressActions from "../api/Actions/addressActions";
 
 // Récupérer toutes les adresses
 router.get("/api/addresses", addressActions.getAllAddresses);

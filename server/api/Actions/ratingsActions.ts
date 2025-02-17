@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 
-import usersRepository from "../users/usersRepository";
-import ratingsRepository from "./ratingsRepository";
+import usersRepository from "../Repository/usersRepository";
+import ratingsRepository from "../Repository/ratingsRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
@@ -38,7 +38,7 @@ const browse: RequestHandler = async (req, res, next) => {
       "enculer",
     ];
 
-    rating = rating.filter((rating) => {
+    rating = rating.filter((rating: { comment: string }) => {
       return !badWord.some((badWord) => rating.comment.includes(badWord));
     });
 

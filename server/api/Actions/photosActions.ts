@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import photosRepository from "./photosRepository";
+import photosRepository from "../Repository/photosRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
